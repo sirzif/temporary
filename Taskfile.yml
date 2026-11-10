@@ -1,0 +1,25 @@
+version: "3"
+
+vars:
+  TAG: latest
+
+tasks:
+  so-validate:
+    cmds:
+      - |
+        npm run lint
+        npm audit
+
+  so-prepare:
+    cmds:
+      - npm install
+
+  so-test:
+    cmds:
+      - npm test
+
+  so-build:
+    cmds:
+      # for testing purposes 2 images are built
+      - docker buildx build -t "selfops-test-project:{{.TAG}}" .
+      - docker buildx build -t "example.com/namespace/selfops-test-project:{{.TAG}}-safe" .
