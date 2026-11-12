@@ -1,4 +1,4 @@
-FROM registry.redhat.io/ubi9/nodejs-22-minimal:latest AS builder
+FROM registry.access.redhat.com/ubi9/nodejs-22-minimal:9.9-1793849022 AS builder
 
 WORKDIR /build
 
@@ -8,7 +8,7 @@ RUN npm install
 COPY src ./src
 RUN npm run build
 
-FROM registry.redhat.io/ubi9/nodejs-22-minimal:latest
+FROM registry.access.redhat.com/ubi9/nodejs-22-minimal:9.9-1793849022
 
 WORKDIR /app
 
