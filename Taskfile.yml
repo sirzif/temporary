@@ -21,6 +21,6 @@ tasks:
   so-build:
     cmds:
       # for testing purposes 2 images are built
-      - cat /secrets/ibm-container-registry-api-key
+      - cat /secrets/ibm-container-registry-api-key/api_key
       # - docker buildx build -t "selfops-test-project:{{.TAG}}" .
       # - docker buildx build -t "selfops-test-project:{{.TAG}}-safe" .
